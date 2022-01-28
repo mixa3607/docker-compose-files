@@ -1,0 +1,36 @@
+version: '3.6'
+services:
+  master:
+    image: portainer/portainer-ce
+    container_name: portainer
+    profiles: [ "master" ]
+    privileged: true
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+    volumes:
+      - $DOCKER_SOCK_PATH:/var/run/docker.sock
+      - $DOCKER_VOLUMES_PATH:/var/lib/docker/volumes
+      - ./data:/data
+    networks:
+      - default
+    restart: unless-stopped
+  agent:
+    image: portainer/demon
+    container_name: portainer-demon
+    profiles: [ "agent" ]
+    privileged: true
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+    volumes:
+      - $DOCKER_SOCK_PATH:/var/run/docker.sock
+      - $DOCKER_VOLUMES_PATH:/var/lib/docker/volumes
+    networks:
+      - default
+    restart: unless-stopped
+networks:
+  default:

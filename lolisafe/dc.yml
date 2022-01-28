@@ -1,0 +1,33 @@
+version: '3.6'
+services:
+  lolisafe:
+    image: calvinthefreak/lolisafe
+    container_name: lolisafe
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+    volumes:
+      - ./data/config:/usr/src/lolisafe/config
+      - ./data/uploads:/usr/src/lolisafe/uploads
+    networks:
+      - default
+    restart: unless-stopped
+  static:
+    image: nginx
+    profiles: [ "over-nginx" ]
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+    depends_on: [ "lolisafe" ]
+    volumes:
+      - ./data/nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./data/uploads:/uploads
+    networks:
+      - default
+    restart: unless-stopped
+networks:
+  default:

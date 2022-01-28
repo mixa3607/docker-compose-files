@@ -1,0 +1,15 @@
+version: '3.6'
+services:
+  keeweb:
+    image: antelle/keeweb
+    container_name: keeweb
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+    networks:
+      - default
+    restart: unless-stopped
+networks:
+  default:

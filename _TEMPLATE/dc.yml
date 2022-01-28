@@ -1,0 +1,26 @@
+version: '3.6'
+services:
+  sample:
+    image: sample
+    container_name: sample
+    build:
+      network: host
+      context: ./src/sample
+    profiles: [ "sample" ]
+    privileged: false
+    stdin_open: true
+    tty: true
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+    depends_on: [ "sample" ]
+    volumes:
+      - ./data:/data
+    expose: [ 777 ]
+    networks:
+      - default
+    restart: unless-stopped
+networks:
+  default:

@@ -1,0 +1,23 @@
+version: '3.6'
+services:
+  srv:
+    image: ryshe/terraria:latest
+    container_name: terraria
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+    stdin_open: true
+    tty: true
+    ports:
+      - $TERRARIA_PORT:7777
+    volumes:
+      - ./data/worlds:/root/.local/share/Terraria/Worlds/
+      - ./data/plugins:/plugins
+      - ./data/logs:/tshock/logs
+    networks:
+      - default
+    restart: unless-stopped
+networks:
+  default:

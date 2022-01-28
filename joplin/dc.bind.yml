@@ -1,0 +1,6 @@
+version: '3.6'
+services:
+  app:
+    ports:
+      - $JOPLIN_PORT:80
+

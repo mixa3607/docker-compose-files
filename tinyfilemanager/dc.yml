@@ -1,0 +1,17 @@
+version: '3.6'
+services:
+  tfm:
+    image: tinyfilemanager/tinyfilemanager:master
+    container_name: tinyfilemanager
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+    volumes:
+      - ./data/data:/var/www/html/data
+    networks:
+      - default
+    restart: unless-stopped
+networks:
+  default:

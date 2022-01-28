@@ -1,0 +1,10 @@
+version: '3.6'
+services:
+  master:
+    ports:
+      #- 9443:9443
+      - $MASTER_PORT:9000 # legacy
+      #- 8000:8000 # for edge computing
+  agent:
+    ports:
+      - $AGENT_PORT:9001

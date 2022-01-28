@@ -1,0 +1,12 @@
+version: '3.6'
+services:
+  ytdl:
+    environment:
+      - VIRTUAL_HOST=$YTDL_HOST
+      - VIRTUAL_PORT=17442
+    networks:
+      - nginx
+networks:
+  nginx:
+    name: nginx
+    external: true

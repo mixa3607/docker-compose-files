@@ -1,0 +1,5 @@
+version: '3.6'
+services:
+  netboot:
+    ports:
+      - $NETBOOT_PORT:3000

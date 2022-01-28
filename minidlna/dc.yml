@@ -1,0 +1,16 @@
+version: '3.6'
+services:
+  minidlna:
+    image: vladgh/minidlna
+    container_name: minidlna
+    network_mode: host
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+      - MINIDLNA_MEDIA_DIR=/mnt
+      - MINIDLNA_FRIENDLY_NAME=$DATA_NAME
+    volumes:
+      - $DATA_PATH:/mnt
+    restart: unless-stopped

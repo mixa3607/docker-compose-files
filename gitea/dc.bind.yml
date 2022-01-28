@@ -1,0 +1,5 @@
+version: '3.6'
+services:
+  gitea:
+    ports:
+      - $GITEA_PORT:3000

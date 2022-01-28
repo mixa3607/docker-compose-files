@@ -1,0 +1,12 @@
+version: '3.6'
+services:
+  gitea:
+    environment:
+      - VIRTUAL_HOST=$GITEA_HOST
+      - VIRTUAL_PORT=3000
+    networks:
+      - nginx
+networks:
+  nginx:
+    name: nginx
+    external: true

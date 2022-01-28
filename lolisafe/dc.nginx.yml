@@ -1,0 +1,12 @@
+version: '3.6'
+services:
+  lolisafe:
+    environment:
+      - VIRTUAL_HOST=$LOLISAFE_HOST
+      - VIRTUAL_PORT=9999
+    networks:
+      - nginx
+networks:
+  nginx:
+    name: nginx
+    external: true

@@ -1,0 +1,20 @@
+version: '3.6'
+services:
+  fs:
+    image: marcnuri/port-forward
+    environment:
+      - TZ=$TZ
+      - VIRTUAL_HOST=$FS_HOST
+      - VIRTUAL_PORT=80
+      - REMOTE_HOST=netboot
+      - REMOTE_PORT=80
+      - LOCAL_PORT=80
+    depends_on: [ "netboot" ]
+    networks:
+      - default
+      - nginx
+    restart: unless-stopped
+networks:
+  nginx:
+    name: nginx
+    external: true

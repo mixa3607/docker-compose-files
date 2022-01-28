@@ -1,0 +1,22 @@
+version: '3.6'
+services:
+  netboot:
+    image: lscr.io/linuxserver/netbootxyz
+    container_name: netbootxyz
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+      - PORT_RANGE=30000:30010 #optional
+      - SUBFOLDER=/ #optional
+    volumes:
+      - ./data/config:/config
+      - ./data/assets:/assets
+    ports:
+      - 69:69/udp #tftp
+    networks:
+      - default
+    restart: unless-stopped
+networks:
+  default:

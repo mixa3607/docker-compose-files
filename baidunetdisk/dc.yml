@@ -1,0 +1,18 @@
+version: '3.6'
+services:
+  baidu:
+    image: johnshine/baidunetdisk-crossover-vnc:latest
+    container_name: baidunetdisk
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+    volumes:
+      - ./data/cfg:/home/baidu/.config/baidunetdisk
+      - ./data/downloads:/home/baidu/baidunetdiskdownload
+    networks:
+      - default
+    restart: unless-stopped
+networks:
+  default:

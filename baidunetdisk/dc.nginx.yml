@@ -1,0 +1,12 @@
+version: '3.6'
+services:
+  baidu:
+    environment:
+      - VIRTUAL_HOST=$BAIDU_HOST
+      - VIRTUAL_PORT=6080
+    networks:
+      - nginx
+networks:
+  nginx:
+    name: nginx
+    external: true

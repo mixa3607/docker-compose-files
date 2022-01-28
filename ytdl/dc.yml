@@ -1,0 +1,22 @@
+version: '3.6'
+services:
+  ytdl:
+    image: tzahi12345/youtubedl-material:latest
+    container_name: youtube-dl
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+      - ALLOW_CONFIG_MUTATIONS=true
+    volumes:
+      - ./data/appdata:/app/appdata
+      - ./data/audio:/app/audio
+      - ./data/video:/app/video
+      - ./data/subscriptions:/app/subscriptions
+      - ./data/users:/app/users
+    networks:
+      - default
+    restart: unless-stopped
+networks:
+  default:

@@ -1,0 +1,12 @@
+version: '3.6'
+services:
+  netboot:
+    environment:
+      - VIRTUAL_HOST=$NETBOOT_HOST
+      - VIRTUAL_PORT=3000
+    networks:
+      - nginx
+networks:
+  nginx:
+    name: nginx
+    external: true

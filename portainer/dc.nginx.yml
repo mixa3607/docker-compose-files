@@ -1,0 +1,18 @@
+version: '3.6'
+services:
+  master:
+    environment:
+      - VIRTUAL_HOST=$MASTER_HOST
+      - VIRTUAL_PORT=9000
+    networks:
+      - nginx
+  agent:
+    environment:
+      - VIRTUAL_HOST=$AGENT_HOST
+      - VIRTUAL_PORT=9001
+    networks:
+      - nginx
+networks:
+  nginx:
+    name: nginx
+    external: true

@@ -1,0 +1,12 @@
+version: '3.6'
+services:
+  synctube:
+    environment:
+      - VIRTUAL_HOST=$SYNCTUBE_HOST
+      - VIRTUAL_PORT=4200
+    networks:
+      - nginx
+networks:
+  nginx:
+    name: nginx
+    external: true

@@ -1,0 +1,20 @@
+version: '3.6'
+services:
+  synctube:
+    image: synctube
+    container_name: synctube
+    build:
+      network: host
+      context: ./src/SyncTube
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+    volumes:
+      - ./data:/usr/src/app/user
+    networks:
+      - default
+    restart: unless-stopped
+networks:
+  default:

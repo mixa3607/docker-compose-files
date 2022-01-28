@@ -1,0 +1,6 @@
+version: '3.6'
+services:
+  synctube:
+    volumes:
+      - /mnt/trash1/base/TORRENTS/D_RuTracker/D_Anime:/usr/src/app/user/res/anime
+      - /mnt/trash1/base/TORRENTS/D_RuTracker/D_Films:/usr/src/app/user/res/films

@@ -1,0 +1,22 @@
+version: '3.6'
+services:
+  gitea:
+    image: gitea/gitea:latest
+    container_name: gitea
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+      - USER_UID=$USER_UID
+      - USER_GID=$USER_GID
+      - RUN_MODE=$RUN_MODE
+    ports:
+      - 2200:22
+    volumes:
+      - ./data:/data
+    networks:
+      - default
+    restart: unless-stopped
+networks:
+  default:

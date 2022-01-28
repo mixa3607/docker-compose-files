@@ -1,0 +1,12 @@
+version: '3.6'
+services:
+  app:
+    environment:
+      - VIRTUAL_HOST=$JOPLIN_HOST
+      - VIRTUAL_PORT=22300
+    networks:
+      - nginx
+networks:
+  nginx:
+    name: nginx
+    external: true
