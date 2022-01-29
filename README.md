@@ -6,7 +6,7 @@ All required variables placed in .env-example
 
 | Name | Service | Image | Link  | Note |
 | :--: | --      | :--:  | --    | :--: | 
-| [Nginx + ACME-DNS](./nginx/)             | ╦═ <a name="service.nginx-proxy">nginx-proxy</a> | [github](https://github.com/nginx-proxy/nginx-proxy)                     | nginxproxy/nginx-proxy         |                          |
+| [Nginx + ACME-DNS](./nginx-proxy/)       | ╦═ <a name="service.nginx-proxy">nginx-proxy</a> | [github](https://github.com/nginx-proxy/nginx-proxy)                     | nginxproxy/nginx-proxy         |                          |
 |                                          | ╠═ <a name="service.robocert">robocert</a>       | [github](https://github.com/adferrand/dnsrobocert)                       | adferrand/dnsrobocert          |                          |
 |                                          | ╚═ <a name="service.whoami">whoami</a>           | [github](https://github.com/jwilder/whoami)                              | jwilder/whoami                 |                          |
 | [Portainer](./portainer/)                | ╦═ <a name="service.master">master</a>           | [github](https://github.com/portainer/portainer)                         | portainer/portainer-ce         |                          |
