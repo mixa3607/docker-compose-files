@@ -1,5 +1,5 @@
 version: '3.6'
 services:
-  tfm:
+  baidu:
     ports:
       - $BAIDU_PORT:6080

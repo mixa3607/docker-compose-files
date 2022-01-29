@@ -1,0 +1,9 @@
+{
+  "settings": {
+    "gdriveClientId": "",
+    "gdriveClientSecret" : ""
+  },
+  "files": [],
+  "showOnlyFilesFromConfig": false,
+  "plugins": []
+}

@@ -8,6 +8,10 @@ services:
       - PUID=$PUID
       - PGID=$PGID
       - TZ=$TZ
+      - KEEWEB_CONFIG_URL=configs/default.json
+    volumes:
+      - ./data/configs:/keeweb/configs
+      - ./data/certs:/etc/nginx/external
     networks:
       - default
     restart: unless-stopped
