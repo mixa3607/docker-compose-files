@@ -2,7 +2,6 @@ version: '3.6'
 services:
   netboot:
     image: lscr.io/linuxserver/netbootxyz
-    container_name: netbootxyz
     environment:
       - LC_ALL=$LC_ALL
       - PUID=$PUID

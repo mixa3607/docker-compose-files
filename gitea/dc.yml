@@ -2,7 +2,6 @@ version: '3.6'
 services:
   gitea:
     image: gitea/gitea:latest
-    container_name: gitea
     environment:
       - LC_ALL=$LC_ALL
       - PUID=$PUID

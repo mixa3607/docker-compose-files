@@ -2,7 +2,6 @@ version: '3.6'
 services:
   synctube:
     image: synctube
-    container_name: synctube
     build:
       network: host
       context: ./src/SyncTube

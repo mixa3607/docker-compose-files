@@ -1,6 +1,6 @@
-version: '3.6'
+version: '3.9'
 services:
-  nginx:
+  static:
     environment:
       - VIRTUAL_HOST=$LOLISAFE_HOST
       - VIRTUAL_PORT=9999

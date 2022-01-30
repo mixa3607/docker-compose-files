@@ -2,7 +2,6 @@ version: '3.6'
 services:
   ytdl:
     image: tzahi12345/youtubedl-material:latest
-    container_name: youtube-dl
     environment:
       - LC_ALL=$LC_ALL
       - PUID=$PUID

@@ -2,7 +2,6 @@ version: '3.6'
 services:
   tfm:
     image: tinyfilemanager/tinyfilemanager:master
-    container_name: tinyfilemanager
     environment:
       - LC_ALL=$LC_ALL
       - PUID=$PUID

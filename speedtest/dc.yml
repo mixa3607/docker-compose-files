@@ -2,7 +2,6 @@ version: '3.6'
 services:
   backend:
     image: adolfintel/speedtest
-    container_name: speedtest_back
     profiles: [ "back" ]
     environment:
       - LC_ALL=$LC_ALL
@@ -16,7 +15,6 @@ services:
     restart: unless-stopped
   frontend:
     image: adolfintel/speedtest
-    container_name: speedtest_front
     profiles: [ "front" ]
     environment:
       - LC_ALL=$LC_ALL

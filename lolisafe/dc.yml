@@ -1,8 +1,7 @@
-version: '3.6'
+version: '3.9'
 services:
   lolisafe:
     image: calvinthefreak/lolisafe
-    container_name: lolisafe
     environment:
       - LC_ALL=$LC_ALL
       - PUID=$PUID

@@ -2,7 +2,6 @@ version: '3.6'
 services:
   minidlna:
     image: vladgh/minidlna
-    container_name: minidlna
     network_mode: host
     environment:
       - LC_ALL=$LC_ALL

@@ -2,7 +2,6 @@ version: '3.6'
 services:
   baidu:
     image: johnshine/baidunetdisk-crossover-vnc:latest
-    container_name: baidunetdisk
     environment:
       - LC_ALL=$LC_ALL
       - PUID=$PUID

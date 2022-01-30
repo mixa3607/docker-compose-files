@@ -1,6 +1,6 @@
-version: '3.6'
+version: '3.9'
 services:
-  nginx:
+  static:
     ports:
       - $LOLISAFE_PORT:9999
 
