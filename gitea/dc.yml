@@ -11,7 +11,7 @@ services:
       - USER_GID=$USER_GID
       - RUN_MODE=$RUN_MODE
     ports:
-      - 2200:22
+      - "2200:22"
     volumes:
       - ./data:/data
     networks:

@@ -8,7 +8,6 @@ services:
       - PGID=$PGID
       - TZ=$TZ
     volumes:
-      - ./data/cfg:/home/baidu/.config/baidunetdisk
       - ./data/downloads:/home/baidu/baidunetdiskdownload
     networks:
       - default

@@ -10,12 +10,12 @@ services:
       - PUID=$PUID
       - PGID=$PGID
       - TZ=$TZ
-      - SERVER_NAME=Perfect world
-      - WORLD_NAME=PerfectWorld
-      - SERVER_PASS=test123
-      - SERVER_PUBLIC=false
-      - VALHEIM_PLUS=true
-      - BEPINEX=false
+      - SERVER_NAME=$SERVER_NAME
+      - WORLD_NAME=$WORLD_NAME
+      - SERVER_PASS=$SERVER_PASS
+      - SERVER_PUBLIC=$SERVER_PUBLIC
+      - VALHEIM_PLUS=$VALHEIM_PLUS
+      - BEPINEX=$BEPINEX
     volumes: 
       - ./data/config:/config
       - ./data/data:/opt/valheim
@@ -23,5 +23,5 @@ services:
     ports: 
       - "2456-2457:2456-2457/udp"
       - "9001:9001/tcp"
-    restart: always
+    restart: unless-stopped
     stop_grace_period: 2m
