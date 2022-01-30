@@ -9,6 +9,7 @@ services:
       - TZ=$TZ
     stdin_open: true
     tty: true
+    command: -world /root/.local/share/Terraria/Worlds/$WORLD_NAME -autocreate $WORLD_SIZE
     ports:
       - $TERRARIA_PORT:7777
     volumes:

@@ -1,3 +1,5 @@
 data/
 src/
 .env
+synctube/dc.vols.yml
+qbittorrent/dc.vols.yml

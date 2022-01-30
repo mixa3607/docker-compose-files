@@ -1,0 +1,27 @@
+version: "3"
+
+services: 
+  valheim: 
+    image: ghcr.io/lloesche/valheim-server
+    cap_add:
+      - sys_nice
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+      - SERVER_NAME=Perfect world
+      - WORLD_NAME=PerfectWorld
+      - SERVER_PASS=test123
+      - SERVER_PUBLIC=false
+      - VALHEIM_PLUS=true
+      - BEPINEX=false
+    volumes: 
+      - ./data/config:/config
+      - ./data/data:/opt/valheim
+      - ./data/vhp:/config/valheimplus
+    ports: 
+      - "2456-2457:2456-2457/udp"
+      - "9001:9001/tcp"
+    restart: always
+    stop_grace_period: 2m

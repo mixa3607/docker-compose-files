@@ -1,0 +1,5 @@
+version: '3.6'
+services:
+  qbittorrent:
+    volumes:
+      - /mnt/trash1/base/TORRENTS:/mnt

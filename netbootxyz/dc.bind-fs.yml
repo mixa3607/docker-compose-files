@@ -2,4 +2,4 @@ version: '3.6'
 services:
   netboot:
     ports:
-      - $NETBOOT_PORT:80
+      - $FS_PORT:80

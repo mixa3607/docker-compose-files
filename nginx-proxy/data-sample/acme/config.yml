@@ -1,0 +1,11 @@
+draft: false
+acme:
+  email_account: your@gmail.com
+#  staging: true
+profiles:
+- name: cf
+  provider: cloudflare
+  provider_options:
+#    auth_username: your@gmail.com
+    auth_token: this_is_token
+

@@ -17,7 +17,7 @@ services:
       - default
     restart: unless-stopped
   agent:
-    image: portainer/demon
+    image: portainer/agent
     profiles: [ "agent" ]
     privileged: true
     environment:
