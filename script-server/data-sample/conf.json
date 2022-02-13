@@ -1,0 +1,6 @@
+{
+"title": "My Script Server",
+"access":{
+  "admin_users": ["192.168.1.61-017d5c82391f4f43"]
+}
+}

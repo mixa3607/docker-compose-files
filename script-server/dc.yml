@@ -1,0 +1,19 @@
+version: '3.6'
+services:
+  scripts:
+    image: bugy/script-server
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+    volumes:
+      - ./data/conf.json:/app/conf/conf.json
+      - ./data/runners:/app/conf/runners
+      - ./data/scripts:/app/conf/scripts
+    expose: [ 5000 ]
+    networks:
+      - default
+    restart: unless-stopped
+networks:
+  default:

@@ -1,0 +1,5 @@
+version: '3.6'
+services:
+  scripts:
+    ports:
+      - $SCRIPTS_PORT:5000

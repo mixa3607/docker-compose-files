@@ -1,0 +1,12 @@
+version: '3.6'
+services:
+  scripts:
+    environment:
+      - VIRTUAL_HOST=$SCRIPTS_HOST
+      - VIRTUAL_PORT=5000
+    networks:
+      - nginx
+networks:
+  nginx:
+    name: nginx
+    external: true
