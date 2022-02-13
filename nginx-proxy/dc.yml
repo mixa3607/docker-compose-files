@@ -8,6 +8,8 @@ services:
       - PGID=$PGID
       - TZ=$TZ
       - DEFAULT_HOST=$DEFAULT_HOST
+      - HTTP_PORT=$NGINX_HTTP_PORT
+      - HTTPS_PORT=$NGINX_HTTPS_PORT
     volumes:
       - ./data/certs:/etc/nginx/certs
       - ./data/htpasswd:/etc/nginx/htpasswd
@@ -15,8 +17,8 @@ services:
       - ./data/vhost.d:/etc/nginx/vhost.d:ro
       - $DOCKER_SOCK_PATH:/tmp/docker.sock:ro
     ports:
-      - $NGINX_HTTP_PORT:80
-      - $NGINX_HTTPS_PORT:443
+      - $NGINX_HTTP_PORT:$NGINX_HTTP_PORT
+      - $NGINX_HTTPS_PORT:$NGINX_HTTPS_PORT
     networks:
       - nginx
     restart: unless-stopped
