@@ -1,0 +1,32 @@
+version: '3.6'
+services:
+  sync:
+    image: cytube
+    build:
+      network: host
+      dockerfile: ../../Dockerfile
+      context: ./src/Sync
+    environment:
+      - LC_ALL=$LC_ALL
+      - TZ=$TZ
+    depends_on: [ "database" ]
+    volumes:
+      - "./data/config.yaml:/sync/config.yaml"
+    expose: [ 8080 ]
+    networks:
+     - default
+    restart: unless-stopped
+  database:
+    image: mariadb:10.5.1
+    environment:
+      - LC_ALL=$LC_ALL
+      - TZ=$TZ
+      - MYSQL_ROOT_PASSWORD=sync 
+      - MYSQL_DATABASE=cytube3
+    volumes:
+      - "./data/mysql:/var/lib/mysql"      
+    networks:
+     - default
+    restart: unless-stopped
+networks:
+  default:

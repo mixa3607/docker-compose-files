@@ -1,0 +1,5 @@
+version: '3.6'
+services:
+  sync:
+    volumes:
+      - /mnt/trash1/base/TORRENTS/D_RuTracker/D_Films:/files/vids/films

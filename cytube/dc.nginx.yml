@@ -1,0 +1,26 @@
+version: '3.6'
+services:  
+  sync:
+    environment:
+      - VIRTUAL_HOST=$SYNC_HOST
+      - VIRTUAL_PORT=8080
+    networks:
+      - nginx
+  syncio:
+    image: marcnuri/port-forward
+    environment:
+      - TZ=$TZ
+      - VIRTUAL_HOST=$IO_HOST
+      - VIRTUAL_PORT=1337
+      - REMOTE_HOST=sync
+      - REMOTE_PORT=1337
+      - LOCAL_PORT=1337
+    depends_on: [ "sync" ]
+    networks:
+      - default
+      - nginx
+    restart: unless-stopped
+networks:
+  nginx:
+    name: nginx
+    external: true
