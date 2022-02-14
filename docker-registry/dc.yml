@@ -1,0 +1,22 @@
+version: '3.6'
+services:
+  registry:
+    image: registry:2
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+      - REGISTRY_AUTH=htpasswd
+      - REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd
+      - REGISTRY_AUTH_HTPASSWD_REALM=Registry Realm
+    volumes:
+      - ./data/config.yml:/etc/docker/registry/config.yml
+      - ./data/registry:/var/lib/registry
+      - ./data/auth:/auth
+    expose: [ 5000 ]
+    networks:
+      - default
+    restart: unless-stopped
+networks:
+  default:

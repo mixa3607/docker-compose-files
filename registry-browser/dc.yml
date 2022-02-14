@@ -1,0 +1,19 @@
+version: '3.6'
+services:
+  browser:
+    image: klausmeyer/docker-registry-browser
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+      - BASIC_AUTH_PASSWORD=$BASIC_AUTH_PASSWORD
+      - BASIC_AUTH_USER=$BASIC_AUTH_USER
+      - DOCKER_REGISTRY_URL=$DOCKER_REGISTRY_URL
+      - ENABLE_DELETE_IMAGES=true
+    expose: [ 8080 ]
+    networks:
+      - default
+    restart: unless-stopped
+networks:
+  default:

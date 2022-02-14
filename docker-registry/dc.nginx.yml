@@ -1,0 +1,12 @@
+version: '3.6'
+services:
+  registry:
+    environment:
+      - VIRTUAL_HOST=$REGISTRY_HOST
+      - VIRTUAL_PORT=5000
+    networks:
+      - nginx
+networks:
+  nginx:
+    name: nginx
+    external: true
