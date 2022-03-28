@@ -1,0 +1,10 @@
+version: '3.6'
+services:
+  nginx:
+    ports:
+      - $NGINX_HTTP_PORT:$NGINX_HTTP_PORT
+      - $NGINX_HTTPS_PORT:$NGINX_HTTPS_PORT
+    networks:
+      - default
+networks:
+  default:

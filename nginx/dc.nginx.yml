@@ -1,0 +1,11 @@
+version: '3.6'
+services:
+  nginx:
+    environment:
+      - VIRTUAL_HOST=$NGINX_HOST
+      - VIRTUAL_PORT=$NGINX_HTTP_PORT
+    networks:
+      - nginx
+networks:
+  nginx:
+    external: true
