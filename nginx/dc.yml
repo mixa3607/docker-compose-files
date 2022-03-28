@@ -9,5 +9,6 @@ services:
       - TZ=$TZ
       - NGINX_PORT=$NGINX_HTTP_PORT
     volumes:
-      - ./data/nginx.conf:/etc/nginx/nginx.conf
+#      - ./data/nginx.conf:/etc/nginx/nginx.conf
+      - ./data/templates:/etc/nginx/templates
     restart: unless-stopped
