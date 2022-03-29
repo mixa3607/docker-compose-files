@@ -1,0 +1,18 @@
+version: '3.6'
+services:
+  linx:
+    image: andreimarcu/linx-server
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+    command: -config /cfg/linx-server.conf
+    volumes:
+      - ./data/cfg:/cfg
+    expose: [ 8080 ]
+    networks:
+      - default
+    restart: unless-stopped
+networks:
+  default:

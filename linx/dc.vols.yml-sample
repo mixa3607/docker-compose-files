@@ -1,0 +1,6 @@
+version: '3.6'
+services:
+  linx:
+    volumes:
+      - ./data/files:/data/files
+      - ./data/mets:/data/meta
