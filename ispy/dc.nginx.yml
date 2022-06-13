@@ -1,0 +1,13 @@
+version: '3.6'
+services:
+  ispy:
+    environment:
+      - VIRTUAL_HOST=$ISPY_HOST
+      - VIRTUAL_PORT=8090
+      - HTTPS_METHOD=nohttps
+    networks:
+      - nginx
+networks:
+  nginx:
+    name: nginx
+    external: true

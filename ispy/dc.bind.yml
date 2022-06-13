@@ -1,0 +1,5 @@
+version: '3.6'
+services:
+  ispy:
+    ports:
+      - $ISPY_PORT:8090

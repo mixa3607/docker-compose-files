@@ -1,0 +1,22 @@
+version: '3.6'
+services:
+  ispy:
+    image: doitandbedone/ispyagentdvr:latest
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+    ports:
+      - '3478:3478/udp'
+      - '50000-50010:50000-50010/udp'
+    volumes:
+      - ./data/media/xml:/agent/Media/XML
+      - ./data/media/webserverroot/media:/agent/Media/WebServerRoot/Media
+      - ./data/commands:/agent/Commands
+    expose: [ 8090 ]
+    networks:
+      - default
+    restart: unless-stopped
+networks:
+  default:
