@@ -1,0 +1,12 @@
+version: '3.6'
+services:
+  web:
+    environment:
+      - VIRTUAL_HOST=$WEB_HOST
+      - VIRTUAL_PORT=80
+    networks:
+      - nginx
+networks:
+  nginx:
+    name: nginx
+    external: true

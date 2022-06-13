@@ -1,0 +1,19 @@
+version: '3.6'
+
+services:
+  web:
+    environment: &users
+      - ADMIN_USERS=1
+      - USER_0_USERNAME=ad
+      - USER_0_PASSWORD=ad
+      - USER_0_FIRST_NAME=name
+      - USER_0_LAST_NAME=last
+      - USER_0_SECOND_NAME=sec
+      - USER_0_B_DAY=2000-01-01
+      - USER_0_SERIES=99
+      - USER_0_NUMBER=777
+      - USER_0_TIMEZONE=$TZ
+      - USER_0_TG_CHAT_ID=0000
+  tg:
+    environment:
+      *users

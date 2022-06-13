@@ -1,0 +1,35 @@
+version: '3.6'
+services:
+  web:
+    image: qr-gos-web
+    build:
+      network: host
+      context: ./src/CovidQRCodeGenerator
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+    volumes:
+      - ./src/CovidQRCodeGenerator/app:/app
+    networks:
+      - default
+    restart: unless-stopped
+  tg:
+    build:
+      context: ./src/CovidQRCodeGenerator
+      dockerfile: tg.dockerfile
+    profiles: [ tg ]
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - TG_BOT_TOKEN=$TG_TOKEN
+      - TG_BOT_QR_HOST=$WEB_HOST_TG
+    volumes:
+      - ./src/CovidQRCodeGenerator/app:/app
+    networks:
+      - default
+    restart: unless-stopped
+  redis:
+    image: redis:6-alpine
+    networks:
+      - default
+    restart: unless-stopped
+networks:
+  default:
