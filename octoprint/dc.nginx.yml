@@ -1,0 +1,18 @@
+version: '3.6'
+services:
+  octo:
+    environment:
+      - VIRTUAL_HOST=$OCTO_HOST
+      - VIRTUAL_PORT=80
+    networks:
+      - nginx
+  config-editor:
+    environment:
+      - VIRTUAL_HOST=$CODE_HOST
+      - VIRTUAL_PORT=8443
+    networks:
+      - nginx
+networks:
+  nginx:
+    name: nginx
+    external: true

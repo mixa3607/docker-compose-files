@@ -1,0 +1,31 @@
+services:
+  octo:
+    image: octoprint/octoprint
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+    volumes:
+      - ./data:/octoprint
+    expose: [ 80 ]
+    networks:
+      - default
+    restart: unless-stopped
+  config-editor:
+    image: linuxserver/code-server
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+    volumes:
+      - ./data:/octoprint
+    expose: [ 8443 ]
+    depends_on:
+      - octo
+    volumes:
+      - ./data:/octoprint
+    restart: unless-stopped
+networks:
+  default:

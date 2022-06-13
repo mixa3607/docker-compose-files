@@ -1,0 +1,6 @@
+services:
+  octo:
+    environment:
+      - ENABLE_MJPG_STREAMER=true
+    devices:
+      - /dev/ttyACM0:/dev/ttyACM0
