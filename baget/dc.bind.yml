@@ -1,0 +1,5 @@
+version: '3.6'
+services:
+  sample:
+    ports:
+      - $SAMPLE_PORT:17442

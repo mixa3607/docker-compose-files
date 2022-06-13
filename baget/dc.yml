@@ -1,0 +1,18 @@
+version: '3.6'
+services:
+  baget:
+    image: loicsharma/baget:latest
+    env_file: baget.env
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+    volumes:
+      - ./data:/var/baget
+    expose: [ 80 ]
+    networks:
+      - default
+    restart: unless-stopped
+networks:
+  default:
