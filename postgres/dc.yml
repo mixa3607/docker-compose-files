@@ -1,0 +1,19 @@
+services:
+  db:
+    image: postgres:${PG_VERSION-latest}
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+      - POSTGRES_USER=$PG_USER
+      - POSTGRES_PASSWORD=$PG_PASSWORD
+    volumes:
+      - ./data/sql_init:/docker-entrypoint-initdb.d
+      - ./data/data:/var/lib/postgresql/data
+    expose: [ 5432 ]
+    networks:
+      - default
+    restart: unless-stopped
+networks:
+  default:

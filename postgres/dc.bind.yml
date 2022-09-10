@@ -1,0 +1,4 @@
+services:
+  db:
+    ports:
+      - $PG_PORT:5432
