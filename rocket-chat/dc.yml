@@ -1,0 +1,32 @@
+version: '3.6'
+services:
+  rocketchat:
+    image: registry.rocket.chat/rocketchat/rocket.chat:latest
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+      - MONGO_URL=mongodb://mongodb:27017/rocketchat?replicaSet=rs0
+      - MONGO_OPLOG_URL=mongodb://mongodb:27017/local?replicaSet=rs0
+    depends_on: [ "mongodb" ]
+    expose: [ 3000 ]
+    networks:
+      - default
+    restart: unless-stopped
+  mongodb:
+    image: docker.io/bitnami/mongodb:4.4
+    environment:
+      - MONGODB_REPLICA_SET_MODE=primary
+      - MONGODB_REPLICA_SET_NAME=rs0
+      - MONGODB_PORT_NUMBER=27017
+      - MONGODB_INITIAL_PRIMARY_HOST=mongodb
+      - MONGODB_INITIAL_PRIMARY_PORT_NUMBER=27017
+      - MONGODB_ADVERTISED_HOSTNAME=mongodb
+      - MONGODB_ENABLE_JOURNAL=true
+      - ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - ./data/mongo:/bitnami/mongodb
+    restart: unless-stopped
+networks:
+  default:

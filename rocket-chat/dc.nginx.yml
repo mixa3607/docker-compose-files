@@ -1,0 +1,14 @@
+version: '3.6'
+services:
+  rocketchat:
+    environment:
+      - ROOT_URL=https://$CHAT_HOST
+      - PORT=3000
+      - VIRTUAL_HOST=$CHAT_HOST
+      - VIRTUAL_PORT=3000
+    networks:
+      - nginx
+networks:
+  nginx:
+    name: nginx
+    external: true
