@@ -1,0 +1,6 @@
+version: '3.6'
+services:
+  api:
+    ports:
+      - $TG_API_PORT:8081
+      - $TG_STAT_PORT:8082

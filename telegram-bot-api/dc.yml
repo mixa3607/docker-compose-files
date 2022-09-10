@@ -1,0 +1,20 @@
+services:
+  api:
+    image: aiogram/telegram-bot-api:latest
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+      - TELEGRAM_STAT=$TELEGRAM_STAT
+      - TELEGRAM_LOCAL=$TELEGRAM_LOCAL
+      - TELEGRAM_API_ID=$TELEGRAM_API_ID
+      - TELEGRAM_API_HASH=$TELEGRAM_API_HASH
+    volumes:
+      - ./data/state:/var/lib/telegram-bot-api
+    expose: [ 8081,8082 ]
+    networks:
+      - default
+    restart: unless-stopped
+networks:
+  default:
