@@ -2,6 +2,8 @@ version: '3.6'
 services:
   linx:
     image: andreimarcu/linx-server
+    build:
+      context: ./src/linx-server
     environment:
       - LC_ALL=$LC_ALL
       - PUID=$PUID

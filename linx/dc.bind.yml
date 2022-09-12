@@ -3,3 +3,4 @@ services:
   linx:
     ports:
       - $LINX_PORT:8080
+    network_mode: bridge
