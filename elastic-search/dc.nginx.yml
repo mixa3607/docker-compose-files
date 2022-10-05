@@ -1,0 +1,17 @@
+services:
+  es01:
+    environment:
+      - VIRTUAL_HOST=$ELASTIC_HOST
+      - VIRTUAL_PORT=9200
+    networks:
+      - nginx
+  kib01:
+    environment:
+      - VIRTUAL_HOST=$KIBANA_HOST
+      - VIRTUAL_PORT=5601
+    networks:
+      - nginx
+networks:
+  nginx:
+    name: nginx
+    external: true
