@@ -1,0 +1,11 @@
+services:
+  scipy:
+    environment:
+      - VIRTUAL_HOST=$JU_HOST
+      - VIRTUAL_PORT=8888
+    networks:
+      - nginx
+networks:
+  nginx:
+    name: nginx
+    external: true

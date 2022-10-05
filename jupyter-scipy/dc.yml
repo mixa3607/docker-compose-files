@@ -1,0 +1,24 @@
+services:
+  scipy:
+    image: jupyter/scipy-notebook
+    stdin_open: true
+    tty: true
+    user: root
+    working_dir: /home/root 
+    environment:
+      - LC_ALL=$LC_ALL
+      - TZ=$TZ
+      - NOTEBOOK_ARGS=--allow-root
+      - NB_USER=root
+      - NB_UID=$PUID
+      - NB_GID=$PGID
+      - CHOWN_HOME=yes
+      - GRANT_SUDO=yes
+    volumes:
+      - ./data:/home/root/work
+    expose: [ 8888 ]
+    networks:
+      - default
+    restart: unless-stopped
+networks:
+  default:
