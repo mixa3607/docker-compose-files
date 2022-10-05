@@ -16,5 +16,19 @@ services:
     networks:
       - default
     restart: unless-stopped
+  static:
+    image: nginx
+    environment:
+      - LC_ALL=$LC_ALL
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+      - NGINX_PORT=80
+    networks: [ default ]
+    expose: [ 80 ]
+    volumes:
+      - ./data/nginx:/etc/nginx/templates
+      - ./data/state:/www/data/var/lib/telegram-bot-api
+    restart: unless-stopped
 networks:
   default:
